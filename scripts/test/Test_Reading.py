@@ -1,5 +1,8 @@
 import pytest
 
+from scripts.SerialComPy.MessageType import MessageType
+
+
 class Test_Reading:
     """Testing all the methods related to reading messages from the serial communication."""
     
@@ -13,12 +16,18 @@ class Test_Reading:
         else:
             assert is_start_sequence == False
     
-    
+    @pytest.mark.parametrize("byte, message_type",
+                             [(0x01, MessageType.WRITE_DIGITAL),
+                              (0x02, MessageType.READ_DIGITAL),
+                              (0x10, MessageType.RESET),
+                              (0xA0, ValueError)])
     def test_recognize_message_type(self, byte, message_type):
-        pass
-    
-    def test_recognize_message_length(self, byte, length):
-        pass
+        if byte in MessageType:
+            return MessageType(byte).name
+             
+        else:
+            return ValueError("Has is invalid message type")
+            
     
     def test_read_message_from_bytes(self, byte_sequence, message):
         pass
