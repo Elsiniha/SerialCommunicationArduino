@@ -41,6 +41,6 @@ To communicate with the Arduino's pins we have a script running on the Arduino t
 
 - Message Length Byte: Specifying how many bytes the payload containing the message is comprised of
 - Check Sum: To ensure all the data that has been sent has been received correctly the check sum is calculated and sent with the message. It is calculated as: 
-$$
-\text{Checksum} = \sum_{i=1}^{n} \mathrm{int}(b_i), \quad \text{where } b_i \text{ are all message bytes except the checksum byte itself.}
-$$
+
+    $\text{Checksum} = \sum_{i=1}^{n} \mathrm{int}(b_i), \quad \text{where } b_i \text{ are all message bytes except the checksum byte itself.}$
+
