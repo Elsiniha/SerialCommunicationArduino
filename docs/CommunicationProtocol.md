@@ -3,7 +3,7 @@
 To communicate with the Arduino's pins we have a script running on the Arduino that continuously waits for a request from the main script on the computer. The communication medium are sequences of bytes that have a very specific structure:
 
 ```
-[Start Sequence Byte] -> [Message Type Byte] -> [Message Length Byte] -> [Pin Number][Payload][...] -> [Check Sum Byte]
+[Start Sequence Byte], [Message Type Byte], [Message Length Byte], [Pin Number][Payload][...], [Check Sum Byte]
 ```
 
 - Start Sequence Byte: Byte containing the start sequence signaling the start of a message. The start sequence used in this project is **0xAA** which translates to the Bit-Sequence of **10101010**

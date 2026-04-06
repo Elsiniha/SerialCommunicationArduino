@@ -1,8 +1,10 @@
 from enum import Enum
 
-
+class DigitalPin(Enum):
+    HIGH = 1
+    LOW = 0
+    
 class MessageType(Enum):
-    "All the different message types as Enums and the corresponding values"
     WRITE_DIGITAL = 0x01
     READ_DIGITAL = 0x02
     DIGITAL_VALUE_RESPONSE = 0x03
